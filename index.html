@@ -12,6 +12,17 @@
             flex-direction: column;
             align-items: center;
         }
+        .button-container {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .main-container {
+            width: 100%;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
         h1,h2 {
             font-family: 'Pacifico', cursive;
             color:#CC8294;
@@ -50,7 +61,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="button-container">
+    <button onclick="opencard()">
+    Avaa kortti
+    </button>
+    </div>
+    <div class="main-container">
     <h1>
         Paljon onnea
     </h1>
@@ -257,12 +273,26 @@
             <path opacity="0.2" d="M74.4879 59.1174C80.7502 53.9616 82.9458 46.1812 79.6552 41.3319C79.8348 41.5132 80.0075 41.7027 80.1717 41.9023C84.1071 46.6853 81.9996 54.9243 75.4646 60.3045C69.1196 65.5284 60.934 66.1361 56.8615 61.7891C56.4341 62.243 68.1534 64.3325 74.4879 59.1174Z" fill="white"/>
         </svg>
 
-        <audio class="audioElement" src="/song.mp3" autoplay></audio>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <audio autoplay controls class="audioElement">
+            <source src="song.mp3">
+        </audio>
  
         <script>
+            function opencard(){
+            buttoncontainer = document.querySelector(".button-container");
+            maincontainer = document.querySelector(".main-container");
             audioElement = document.querySelector(".audioElement");
+
+            buttoncontainer.style.display = "none";
+            maincontainer.style.display = "flex";
+
             audioElement.play();
+
+            }
         </script>
+
+    <!--<iframe src="autoplay.html" allow="autoplay">
+    </iframe>-->
+    <div>
 </body>
 </html>
