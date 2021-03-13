@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Paljon onnea!</title>
     <style>
         body {
             background-color: #FFE5EC;
@@ -257,8 +257,23 @@
             <path opacity="0.2" d="M74.4879 59.1174C80.7502 53.9616 82.9458 46.1812 79.6552 41.3319C79.8348 41.5132 80.0075 41.7027 80.1717 41.9023C84.1071 46.6853 81.9996 54.9243 75.4646 60.3045C69.1196 65.5284 60.934 66.1361 56.8615 61.7891C56.4341 62.243 68.1534 64.3325 74.4879 59.1174Z" fill="white"/>
         </svg>
 
-        <audio preload autoplay controls loop>
+        <iframe src="song.wav" allow="autoplay" style="display:none" id="iframeAudio">
+        </iframe> 
+
+        <audio preload autoplay controls loop  id="playAudio">
             <source src="song.wav" type="audio/wav">
         </audio>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+             var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+  if (!isChrome){
+      $('#iframeAudio').remove()
+  }
+  else {
+      $('#playAudio').remove() // just to make sure that it will not have 2x audio in the background 
+  }
+        </script>    
 </body>
 </html>
